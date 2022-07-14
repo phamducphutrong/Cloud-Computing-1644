@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/5.0.1/css/bootstrap.min.css">
+    <script src="https://cdn.usebootstrap.com/bootstrap/5.0.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.usebootstrap.com/bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+    <title>Login Page</title>
+    <style>
+        .formContainer {
+            box-shadow: 4px 8px 16px #d7d7d7;
+            margin: 20vh auto;
+            padding: 20px;
+            border-radius: 0px 0px 4px 4px;
+        }
+
+        input {
+            box-shadow: none !important;
+            outline: none;
+        }
+
+        #formHeading {
+            background: #63cd9c;
+            margin: -20px;
+            border-radius: 4px 4px 0px 0px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="p-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-6 col-lg-3 mx-auto">
+                    <div class="formContainer">
+                        <h2 class="p-2 text-center mb-4 h4" id="formHeading">Login</h2>
+                        <form action="/checkLogin" method="post">
+                            <div class="form-group mt-3">
+                                <label class="mb-2" for="username">Username</label>
+                                <input class="form-control" id="username" name="username" type="text"
+                                    placeholder="Username" value="{{userName}}" />
+                            </div>
+                            {{#if emptyUsername}}
+                            <div class="mt-3 text-danger">
+                                {{emptyUsername}}
+                            </div>
+                            {{/if}}
+                            <div class="form-group mt-3">
+                                <label class="mb-2" for="password">Password</label>
+                                <input class="form-control" id="password" name="password" type="password"
+                                    placeholder="Password" value="{{password}}" />
+                            </div>
+                            {{#if emptyPassword}}
+                            <div class="mt-3 text-danger">
+                                {{emptyPassword}}
+                            </div>
+                            {{/if}}
+                            {{#if loginFailed}}
+                            <div class="mt-3 text-danger">
+                                {{loginFailed}}
+                            </div>
+                            {{/if}}
+                            <input type="submit" class="btn btn-success btn-lg w-100 mt-4" value="Login">
+                        </form>
+                        <a href="/register" class="btn btn-success btn-lg w-100 mt-4">Register account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

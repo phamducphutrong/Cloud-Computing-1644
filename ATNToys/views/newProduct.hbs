@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/5.0.1/css/bootstrap.min.css">
+    <script src="https://cdn.usebootstrap.com/bootstrap/5.0.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.usebootstrap.com/bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+    <title>New Product</title>
+</head>
+
+<body>
+    <section class="vh-100" style="background-color: #f4f5f7;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="navbar-brand">ATN Toys</div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/home">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/viewToys">View Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/insert">New product</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-3">
+            <h2 class="text-center">Add New Product</h2>
+            <form action="/checkInsert" method="post" enctype="multipart/form-data">
+                <div class="mb-3 h5">
+                    <label for="name" class="form-label">Product Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{name}}">
+                </div>
+                {{#if emptyName}}
+                <div class="mb-3 text-danger">
+                    {{emptyName}}
+                </div>
+                {{/if}}
+                <div class="mb-3 h5">
+                    <label for="price" class="form-label">Product Price</label>
+                    <input type="text" class="form-control" id="price" name="price" value="{{price}}">
+                </div>
+                {{#if emptyPrice}}
+                <div class="mb-3 text-danger">
+                    {{emptyPrice}}
+                </div>
+                {{/if}}
+                <div class="mb-3 h5">
+                    <label for="provider" class="form-label">Product Provider</label>
+                    <input type="text" class="form-control" id="provider" name="provider" value="{{provider}}">
+                </div>
+                {{#if emptyProvider}}
+                <div class="mb-3 text-danger">
+                    {{emptyProvider}}
+                </div>
+                {{/if}}
+                <div class="mb-3 h5">
+                    <label for="image" class="form-label">Product Image</label>
+                    <input type="file" class="form-control" id="image" name="image">
+                </div>
+                {{#if insertFailed}}
+                <div class="mb-3 text-danger">
+                    {{insertFailed}}
+                </div>
+                {{/if}}
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="/viewToys" class="btn btn-danger">Cancel</a>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
