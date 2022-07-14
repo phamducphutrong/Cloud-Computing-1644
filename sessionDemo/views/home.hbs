@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <h1>Say Hi</h1>
+    {{!-- <h1>Bạn đã truy cập trang {{accessCount}} lần trong phiên làm việc!</h1> --}}
+    <form action="/register" method="post">
+        {{!-- {{#if }} --}}
+        {{!-- Tell me your name: <input type="text" name="txtName"> --}}
+        Username: <input type="text" name="username">
+        Password: <input type="password" name="password">
+        <input type="submit" value="Login">
+        {{!-- {{else}} --}}
+
+        {{!-- {{/if}} --}}
+    </form>
+
+    <a href="/profile">See my profile</a>
+</body>
+
+</html>

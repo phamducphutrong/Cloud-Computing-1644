@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Page</title>
+</head>
+
+<body>
+    <h1 style="color:blue">Student Page</h1>
+    <a href="/">home page</a>
+    <br>
+    <form action="/registerLunch" method="post">
+        Name: <input type="text" name="txtName">
+        <br>
+        Choosing Food:
+        <select name="food">
+            {{#each foods}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
+        <br>
+        <input type="submit" value="Register">
+    </form>
+
+</body>
+
+</html>
